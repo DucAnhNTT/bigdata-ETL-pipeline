@@ -21,7 +21,7 @@ This project demonstrates the design and implementation of a  data pipeline and 
 
 ## Overview
   ### Database Schema
-  ![](./dataForProject/image/dvdrental-schema.pnj)
+  ![](./dataForProject/image/dvdrental-schema.png)
   ### Dimensional Modeling with Sales
   ![](./dataForProject/image/dvdrentalDW-schema.png) 
   ### Building report
@@ -30,25 +30,25 @@ This project demonstrates the design and implementation of a  data pipeline and 
 ## How it works
 * Data Sources:
 
-OLTP PostgreSQL Database: The primary source of transactional data.
-Flat Files: Additional data sources in various formats.
+      OLTP PostgreSQL Database: The primary source of transactional data.
+      Flat Files: Additional data sources in various formats.
 Data Ingestion:
 
-Apache Hadoop HDFS: Serves as the data lake for ingesting raw data.
-Data Transformation:
-Apache Hive: The data warehouse for structured data storage and transformation.
-Apache Spark: Powers ETL (Extract, Transform, Load) processes for data processing.
+      Apache Hadoop HDFS: Serves as the data lake for ingesting raw data.
+      Data Transformation:
+      Apache Hive: The data warehouse for structured data storage and transformation.
+      Apache Spark: Powers ETL (Extract, Transform, Load) processes for data processing.
 * Data Modeling:
 
-Hive QL: Used for defining and applying data models on top of the structured data.
+      Hive QL: Used for defining and applying data models on top of the structured data.
 * Data Visualization:
 
-Apache Superset: Provides a rich and interactive interface for data exploration and visualization.
+      Apache Superset: Provides a rich and interactive interface for data exploration and visualization.
 * Orchestration and Workflow:
 
-Apache Airflow: Manages and schedules data pipeline workflows.
+      Apache Airflow: Manages and schedules data pipeline workflows.
 * Docker: 
-Containerizes and isolates components for easy deployment and scalability.
+      Containerizes and isolates components for easy deployment and scalability.
 
 
 ## Quick Start
