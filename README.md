@@ -1,10 +1,54 @@
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/Lobby)
 
-# Docker multi-container environment with Hadoop, Spark and Hive, Airflow, Superset
+# Data Pipeline and Analytics Stack with Docker multi-container environment
 
-This is it: a Docker multi-container environment with Hadoop (HDFS), Spark and Hive, Airflow. This is a repository i'm currently working on and updating from Marcel Jan repo
+This project demonstrates the design and implementation of a  data pipeline and analytics stack for processing, storing, and visualizing data. The stack includes the following components and technologies:
 
-The only thing lacking, is that Hive server doesn't start automatically. To be added when I understand how to do that in docker-compose.
+### Table of contents
+
+* [Architecture diagram](#architecture-diagram)
+* [Overview](#overview)
+* [How it works](#how-it-works)
+* [Prerequisites](#prerequisites)
+* [Quick Start](#quick-start)
+* [References](#references)
+* [Demo](#demo)
+* [Contact](#contact)
+
+## Architecture diagram
+
+![](./dataForProject/image/projectBigdata.jpg)
+
+## Overview
+  ### DvdRental Database Schema
+  ![](./dataForProject/image/dvdrental-schema.jpg)
+  ### Dimensional Modeling with Sales
+  ![](./dataForProject/image/dvdrentalDW-schema.jpg) 
+  ### Building report
+  ![](./dataForProject/image/reportDVD.jpg) 
+
+## How it works
+* Data Sources:
+
+OLTP PostgreSQL Database: The primary source of transactional data.
+Flat Files: Additional data sources in various formats.
+Data Ingestion:
+
+Apache Hadoop HDFS: Serves as the data lake for ingesting raw data.
+Data Transformation:
+Apache Hive: The data warehouse for structured data storage and transformation.
+Apache Spark: Powers ETL (Extract, Transform, Load) processes for data processing.
+* Data Modeling:
+
+Hive QL: Used for defining and applying data models on top of the structured data.
+* Data Visualization:
+
+Apache Superset: Provides a rich and interactive interface for data exploration and visualization.
+* Orchestration and Workflow:
+
+Apache Airflow: Manages and schedules data pipeline workflows.
+* Docker: 
+Containerizes and isolates components for easy deployment and scalability.
 
 
 ## Quick Start
@@ -28,9 +72,6 @@ Run `docker network inspect` on the network (e.g. `docker-hadoop-spark-hive_defa
 * Hive: http://<dockerhadoop_IP_address>:10000
 * Airflow Webserver: http://<dockerhadoop_IP_address>:8082
   
-## Important note regarding Docker Desktop
-Since Docker Desktop turned “Expose daemon on tcp://localhost:2375 without TLS” off by default there have been all kinds of connection problems running the complete docker-compose. Turning this option on again (Settings > General > Expose daemon on tcp://localhost:2375 without TLS) makes it all work. I’m still looking for a more secure solution to this.
-
 
 ## Quick Start HDFS
 
