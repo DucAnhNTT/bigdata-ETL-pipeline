@@ -31,11 +31,14 @@ This project demonstrates the design and implementation of a  data pipeline and 
 * Data Sources:
 
     OLTP PostgreSQL Database: The primary source of transactional data.
+
     Flat Files: Additional data sources in various formats.
-Data Ingestion:
+* Data Ingestion:
 
     Apache Hadoop HDFS: Serves as the data lake for ingesting raw data.
+    
     Data Transformation:
+
     Apache Hive: The data warehouse for structured data storage and transformation.
     Apache Spark: Powers ETL (Extract, Transform, Load) processes for data processing.
 * Data Modeling:
