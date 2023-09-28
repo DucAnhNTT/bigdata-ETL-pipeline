@@ -20,12 +20,12 @@ This project demonstrates the design and implementation of a  data pipeline and 
 ![](./dataForProject/image/projectBigdata.jpg)
 
 ## Overview
-  ### DvdRental Database Schema
-  ![](./dataForProject/image/dvdrental-schema.jpg)
+  ### Database Schema
+  ![](./dataForProject/image/dvdrental-schema.pnj)
   ### Dimensional Modeling with Sales
-  ![](./dataForProject/image/dvdrentalDW-schema.jpg) 
+  ![](./dataForProject/image/dvdrentalDW-schema.png) 
   ### Building report
-  ![](./dataForProject/image/reportDVD.jpg) 
+  ![](./dataForProject/image/reportDVD.png) 
 
 ## How it works
 * Data Sources:
