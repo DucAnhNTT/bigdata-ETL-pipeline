@@ -69,7 +69,7 @@ To deploy an the cluster, run:
 
 Run `docker network inspect` on the network to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
 
-There's up to 19 containers, so it can consume about 6GB RAM or more, that much containers requiring a lot of configuration and read docs. This project is developing based on Marcel Jan's[project](https://github.com/DucAnhNTT/docker-hadoop-spark)
+There's up to 19 containers, so it can consume about 6GB RAM or more, that much containers requiring a lot of configuration and reading documents. This project is developing based on Marcel Jan's [project](https://github.com/DucAnhNTT/docker-hadoop-spark)
 
 The stack includes the following components and technologies:
 
@@ -89,7 +89,8 @@ The stack includes the following components and technologies:
 What you need to run the project:
 - [Docker](https://www.docker.com/) - I suggest using Docker 4.22.x or above.
 - [Apache Component](https://www.apache.org/) - This project is kind of based on Apache component like HDFS, Hive, Spark,... so I would highly recommend you to take a look each component's docs.
-- [OLAP Dimemsional Modeling](https://www.youtube.com/watch?v=lWPiSZf7-uQ) - In this project I try to understand a completely data pipeline from source to visualize, and Modeling DataWarehouse too, and there a video that cover a lot of things about DW and you should take a look at [it](https://www.youtube.com/watch?v=lWPiSZf7-uQ) too.
+- [OLAP Dimemsional Modeling](https://www.youtube.com/watch?v=lWPiSZf7-uQ) - In this project I try to understand a completely data pipeline from source to visualize, and Modeling DataWwarehouse too, and there a video that cover a lot of things about DW and you can try [it](https://www.youtube.com/watch?v=lWPiSZf7-uQ).
+- [PgAdmin4](https://www.pgadmin.org/download/) - This is the most popular and feature rich Open Source administration and development platform for PostgreSQL, we use that to create our OLTP database for ease of using.
 - [Airflow Orchestration](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) - I haven't done with Airflow services yet, because my laptop can't handle that much containers, but don't worry I will update ASAP.
 ## Quick Start HDFS
 
