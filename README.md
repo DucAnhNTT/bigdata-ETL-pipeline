@@ -102,7 +102,7 @@ What you need to run the project:
   ### PgAdmin4: 
   Install and ensure that Postgres container also running, then you can connect to that Postgres using PgAdmin4 interface.
 
-![](./dataForProject/image/postgreConf.jpg)
+![](./dataForProject/image/postgreConf.png)
 
   Then you need to create a database, restore that database with the option Restore from File, and choose this directory "./dataForProject/dvdrental". Now your own database to play with, and the schema is above.
 
