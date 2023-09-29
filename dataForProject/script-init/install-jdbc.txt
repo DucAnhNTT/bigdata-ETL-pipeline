@@ -1,0 +1,2 @@
+docker cp postgresql-42.6.0.jar spark-master:spark/jars    
+docker cp postgresql-42.6.0.jar spark-worker-1:spark/jars

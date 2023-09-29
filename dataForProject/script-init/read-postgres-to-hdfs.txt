@@ -1,0 +1,24 @@
+val jdbcURL = "jdbc:postgresql://host.docker.internal:5435/dvdrental"
+val connectionProperties = new java.util.Properties()
+connectionProperties.setProperty("user", "airflow")
+connectionProperties.setProperty("password", "airflow")
+val table_name = "sales_fact"
+val df = spark.read.jdbc(jdbcURL, table_name, connectionProperties)
+df.write.format("csv").mode("overwrite").save("hdfs://namenode:9000/data/staging/sales_fact.csv")
+val table_name = "staff_dimension"
+val df = spark.read.jdbc(jdbcURL, table_name, connectionProperties)
+df.write.format("csv").save("hdfs://namenode:9000/data/staging/staff_dimension.csv")
+val table_name = "store_dimension"
+val df = spark.read.jdbc(jdbcURL, table_name, connectionProperties)
+df.write.format("csv").save("hdfs://namenode:9000/data/staging/store_dimension.csv")
+val table_name = "customer_dimension"
+val df = spark.read.jdbc(jdbcURL, table_name, connectionProperties)
+df.write.format("csv").save("hdfs://namenode:9000/data/staging/customer_dimension.csv")
+val table_name = "film_dimension"
+val df = spark.read.jdbc(jdbcURL, table_name, connectionProperties)
+df.write.format("csv").save("hdfs://namenode:9000/data/staging/film_dimension.csv")
+val table_name = "d_date"
+val df = spark.read.jdbc(jdbcURL, table_name, connectionProperties)
+df.write.format("csv").save("hdfs://namenode:9000/data/staging/d_date.csv")
+
+

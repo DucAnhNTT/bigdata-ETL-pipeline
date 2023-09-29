@@ -1,0 +1,115 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS staff_dimension (
+    staff_id SMALLINT,
+    first_name STRING,
+    last_name STRING,
+    email STRING,
+    username STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/data/staging/staff_dimension.csv';
+
+
+
+CREATE EXTERNAL TABLE IF NOT EXISTS film_dimension (
+    film_id SMALLINT,
+    title STRING,
+    description STRING,
+    release_year SMALLINT,
+    language STRING,
+    rental_duration SMALLINT,
+    rental_rate DECIMAL(4, 2),
+    length SMALLINT,
+    replacement_cost DECIMAL(5, 2),
+    rating STRING,
+    special_features STRING,
+    last_update TIMESTAMP
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/data/staging/film_dimension.csv';
+
+
+
+CREATE EXTERNAL TABLE IF NOT EXISTS store_dimension (
+    store_id INT,
+    manager_staff_id INT,
+    address STRING,
+    city STRING,
+    country STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/data/staging/store_dimension.csv';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS customer_dimension (
+    customer_id SMALLINT,
+    first_name STRING,
+    last_name STRING,
+    email STRING,
+    address STRING,
+    city STRING,
+    country STRING,
+    create_date DATE,
+    last_update TIMESTAMP
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/data/staging/customer_dimension.csv';
+
+-- Create an external table in Hive based on the PostgreSQL table structure
+CREATE EXTERNAL TABLE IF NOT EXISTS d_date (
+    date_dim_id INT,
+    date_actual DATE,
+    epoch BIGINT,
+    day_suffix STRING,
+    day_name STRING,
+    day_of_week INT,
+    day_of_month INT,
+    day_of_quarter INT,
+    day_of_year INT,
+    week_of_month INT,
+    week_of_year INT,
+    week_of_year_iso STRING,
+    month_actual INT,
+    month_name STRING,
+    month_name_abbreviated STRING,
+    quarter_actual INT,
+    quarter_name STRING,
+    year_actual INT,
+    first_day_of_week DATE,
+    last_day_of_week DATE,
+    first_day_of_month DATE,
+    last_day_of_month DATE,
+    first_day_of_quarter DATE,
+    last_day_of_quarter DATE,
+    first_day_of_year DATE,
+    last_day_of_year DATE,
+    mmyyyy STRING,
+    mmddyyyy STRING,
+    weekend_indr BOOLEAN
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/data/staging/d_date.csv'; 
+
+
+CREATE EXTERNAL TABLE IF NOT EXISTS sales_fact (
+    sales_id INT,
+    date_dim_id INT,
+    customer_id SMALLINT,
+    store_id SMALLINT,
+    staff_id SMALLINT,
+    film_id SMALLINT,
+    quantity SMALLINT,
+    amount DECIMAL(5, 2)
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '/data/staging/sales_fact.csv';
