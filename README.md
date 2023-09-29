@@ -16,6 +16,7 @@ This project demonstrates the design and implementation of a  data pipeline and 
     * [Spark](#spark)
     * [Hive](#hive)
     * [Superset](#superset)
+* [Configure Environment Variables](#configure-environment-variables)
 * [References](#references)
 * [Demo](#demo)
 * [Contact](#contact)
@@ -137,7 +138,7 @@ What you need to run the project:
   ```
   run the code I provide you in this directory "./dataForProject/script-init/read-postgres-to-hdfs.txt", copy and past to the terminal
   
-  ## Quick Start Hive
+  ### Hive
 
   Go to the command line of the Hive server and start hiveserver2
 
