@@ -18,7 +18,6 @@ This project demonstrates the design and implementation of a  data pipeline and 
     * [Superset](#superset)
 * [Configure Environment Variables](#configure-environment-variables)
 * [References](#references)
-* [Demo](#demo)
 * [Contact](#contact)
 
 ## Architecture diagram
@@ -186,9 +185,7 @@ Let's change that.
 
 And let's create a table.
 
-Now the last thing, run the script "./dataForProject/script-init/hive-dw-init.txt", to create DW in Hive, ATTETION!: In Hive, primary keys and foreign keys are not natively supported, as it prioritizes large-scale data processing and querying over enforcing traditional relational constraints. Hive tables do not enforce primary key uniqueness or foreign key relationships. Data quality and consistency checks are typically handled upstream before data is loaded into Hive. For strict enforcement of these constraints, consider using traditional relational databases alongside Hive or data warehouse solutions.
-
-
+Now the last thing, run the script "./dataForProject/script-init/hive-dw-init.txt", to create DW in Hive, ATTETION!: In Hive, primary keys and foreign keys are not natively supported, as it prioritizes large-scale data processing and querying over enforcing traditional relational constraints. Hive tables do not enforce primary key uniqueness or foreign key relationships. Data quality and consistency checks are typically handled upstream before data is loaded into Hive.
 ## Configure Environment Variables
 
 The configuration parameters can be specified in the hadoop.env file or as environmental variables for specific services (e.g. namenode, datanode etc.):
@@ -215,7 +212,12 @@ The available configurations are:
 
 If you need to extend some other configuration file, refer to base/entrypoint.sh bash script.
 
-## Demo
+## References
+Inspired by following codes, articles and videos:
+
+* [Docker's document](https://www.linkedin.com/pulse/dockerizing-hadoop-hive-spark-sqoop-job-thomas/)
+* [Configuration containers](https://www.linkedin.com/pulse/dockerizing-hadoop-hive-spark-sqoop-job-thomas/)
+* [Furthermore of docker](https://docs.docker.com/desktop/networking/)
 
 
 ## Contact
