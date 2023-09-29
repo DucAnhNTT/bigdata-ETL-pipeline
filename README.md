@@ -2,7 +2,7 @@
 
 # Data Pipeline and Analytics Stack with Docker multi-container environment
 
-This project demonstrates the design and implementation of a  data pipeline and analytics stack for processing, storing, and visualizing data. The stack includes the following components and technologies:
+This project demonstrates the design and implementation of a  data pipeline and analytics stack for processing, storing, and visualizing data. 
 
 ### Table of contents
 
@@ -56,16 +56,22 @@ This project demonstrates the design and implementation of a  data pipeline and 
     Containerizes and isolates components for easy deployment and scalability.
 
 
+
+
 ## Quick Start
 
-To deploy an the HDFS-Spark-Hive cluster, run:
+To deploy an the cluster, run:
 ```
   docker-compose up
 ```
 
-`docker-compose` creates a docker network that can be found by running `docker network list`, e.g. `docker-hadoop-spark-hive_default`.
+`docker-compose` creates a docker network that can be found by running `docker network list`.
 
-Run `docker network inspect` on the network (e.g. `docker-hadoop-spark-hive_default`) to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
+Run `docker network inspect` on the network to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
+
+There's up to 19 containers, so it can consume about 6GB RAM or more, that much containers requiring a lot of configuration and read docs. This project is developing based on Marcel Jan's[project](https://github.com/DucAnhNTT/docker-hadoop-spark)
+
+The stack includes the following components and technologies:
 
 * Namenode: http://<dockerhadoop_IP_address>:9870/dfshealth.html#tab-overview
 * History server: http://<dockerhadoop_IP_address>:8188/applicationhistory
@@ -74,10 +80,17 @@ Run `docker network inspect` on the network (e.g. `docker-hadoop-spark-hive_defa
 * Resource manager: http://<dockerhadoop_IP_address>:8088/
 * Spark master: http://<dockerhadoop_IP_address>:8080/
 * Spark worker: http://<dockerhadoop_IP_address>:8081/
-* Hive: http://<dockerhadoop_IP_address>:10000
+* Hive: http://<dockerhadoop_IP_address>:10001
 * Airflow Webserver: http://<dockerhadoop_IP_address>:8082
+* Superset: http://<dockerhadoop_IP_address>:8088
+* Postgres (also metastore for Airflow): http://<dockerhadoop_IP_address>:5435
   
-
+## Prerequisites
+What you need to run the project:
+- [Docker](https://www.docker.com/) - I suggest using Docker 4.22.x or above.
+- [Apache Component](https://www.apache.org/) - This project is kind of based on Apache component like HDFS, Hive, Spark,... so I would highly recommend you to take a look each component's docs.
+- [OLAP Dimemsional Modeling](https://www.youtube.com/watch?v=lWPiSZf7-uQ) - In this project I try to understand a completely data pipeline from source to visualize, and Modeling DataWarehouse too, and there a video that cover a lot of things about DW and you should take a look at [it](https://www.youtube.com/watch?v=lWPiSZf7-uQ) too.
+- [Airflow Orchestration](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) - I haven't done with Airflow services yet, because my laptop can't handle that much containers, but don't worry I will update ASAP.
 ## Quick Start HDFS
 
 Copy breweries.csv to the namenode.
