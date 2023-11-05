@@ -186,6 +186,13 @@ Let's change that.
 And let's create a table.
 
 Now the last thing, run the script "./dataForProject/script-init/hive-dw-init.txt", to create DW in Hive, ATTETION!: In Hive, primary keys and foreign keys are not natively supported, as it prioritizes large-scale data processing and querying over enforcing traditional relational constraints. Hive tables do not enforce primary key uniqueness or foreign key relationships. Data quality and consistency checks are typically handled upstream before data is loaded into Hive.
+  ### Superset
+  Last thing, we want to visualize the report for Business Insight or make report on top of our Data warehouse (Hive), so connect to hive at Superset: http://<dockerhadoop_IP_address>:8088.
+  
+  First thing, you want to connect to Hive:
+    
+
+
 ## Configure Environment Variables
 
 The configuration parameters can be specified in the hadoop.env file or as environmental variables for specific services (e.g. namenode, datanode etc.):
