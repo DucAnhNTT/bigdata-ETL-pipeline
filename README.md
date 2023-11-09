@@ -1,5 +1,3 @@
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/Lobby)
-
 # Data Pipeline and Analytics Stack with Docker multi-container environment
 
 This project demonstrates the design and implementation of a  data pipeline and analytics stack for processing, storing, and visualizing data. And hands-on Big Data solution with batch processing.
@@ -108,13 +106,17 @@ The stack includes the following components and technologies:
   Install and ensure that Postgres container also running, then you can connect to that Postgres using PgAdmin4 interface.
 
 ![](./dataForProject/image/postgreConf.png)
-
-  Then you need to create a database, restore that database with the option Restore from File, and choose this directory "./dataForProject/dvdrental". Now your own database to play with, and the schema is above.
+  1. Then you need to create a database
+  2. Create role postgres
+  3. Extract the dvdrental.rar
+  4. Restore that database with the option Restore from File->"./dataForProject/dvdrental". 
+  5. Now your own database to play with, and the schema is above.
 
   Continue, I need you to create the DW based on that database, There's lot of way to do that, but in this project and faster way you can create the DW Dimensional Model inside the database, and then we dump that data to HDFS.
 
   So, in the Postgres database, you can create the script and run that one I already give you in this path "./dataForProject/script-init/createDW-when-db-have-init.sql"
 
+Following Demo [here](https://youtu.be/L6IYB6vImZA).
 
   ### 📁HDFS: Initialize our Datalake folder in HDFS
   Go to the bash shell on the namenode with that same Container ID of the namenode.
@@ -128,10 +130,13 @@ The stack includes the following components and technologies:
   ```
     hdfs dfs -mkdir -p /data/staging
   ```
+Following Demo [here](https://www.youtube.com/watch?v=_f-eyajCySY&list=PLId1IInL1turLaBYUjjWeEM1z3ZCTMY7d).
 
   ### ✨Spark: ETL data from DBMS to Datalake (HDFS)
 
-  Move on, go to your CMD and make sure your Spark cluster have the Postgres JDBC pre-installed and compatible with each other, I have researched and use it smoothly, all you need to do is copy the postgresql-42.6.0.jar to each Spark workers and Spark master. (TBH, you can run my script i give you in the text file and run it in your host CMD)
+  Move on, go to your CMD and make sure your Spark cluster have the Postgres JDBC pre-installed and compatible with each other, I have researched and use it smoothly, all you need to do is copy the postgresql-42.6.0.jar to each Spark workers and Spark master. (TBH, you can run my script "install-jdbc.txt" i give you in the text file and run it in your host CMD)
+
+
 
   Go to http://<dockerhadoop_IP_address>:8080 or http://localhost:8080/ on your Docker host (laptop) to see the status of the Spark master.
 
@@ -141,8 +146,13 @@ The stack includes the following components and technologies:
   
   spark/bin/spark-shell --master spark://spark-master:7077
   ```
-  run the code I provide you in this directory "./dataForProject/script-init/read-postgres-to-hdfs.txt", copy and past to the terminal
+  run the code I provide you in this directory "./dataForProject/script-init/read-postgres-to-hdfs.txt", copy and past to the terminal. REMEMBER TO RESTART CONTAINERS AFTER YOU COPY THE FILE!
   
+  '''
+docker cp postgresql-42.6.0.jar spark-master:spark/jars    
+docker cp postgresql-42.6.0.jar spark-worker-1:spark/jars
+  '''
+Following Demo [here](https://www.youtube.com/watch?v=_f-eyajCySY&list=PLId1IInL1turLaBYUjjWeEM1z3ZCTMY7d).
   ### 🐝Hive: Initialize our Data Warehouse
 
   Go to the command line of the Hive server and start hiveserver2
@@ -162,7 +172,7 @@ tcp        0      0 0.0.0.0:10000           0.0.0.0:*               LISTEN      
 
 Okay. Beeline is the command line interface with Hive. Let's connect to hiveserver2 now.
 
-```
+``` 
   beeline -u jdbc:hive2://localhost:10000 -n root
   
   !connect jdbc:hive2://127.0.0.1:10000 scott tiger
@@ -192,13 +202,17 @@ Let's change that.
 And let's create a table.
 
 Now the last thing, run the script "./dataForProject/script-init/hive-dw-init.txt", to create DW in Hive, ATTETION!: In Hive, primary keys and foreign keys are not natively supported, as it prioritizes large-scale data processing and querying over enforcing traditional relational constraints. Hive tables do not enforce primary key uniqueness or foreign key relationships. Data quality and consistency checks are typically handled upstream before data is loaded into Hive.
+
+Following Demo [here](https://www.youtube.com/watch?v=_f-eyajCySY&list=PLId1IInL1turLaBYUjjWeEM1z3ZCTMY7d).
+
   ### 📊Superset: Visualize our DW to take insight
-  Last thing, we want to visualize the report for Business Insight or make report on top of our Data warehouse (Hive), so connect to hive at Superset: http://<dockerhadoop_IP_address>:8088.
+  Last thing, we want to visualize the report for Business Insight or make report on top of our Data warehouse (Hive), so connect to Hive with Superset at: http://localhost:8088.
   
   First thing, you want to connect to Hive:
+  ![Alt text](dataForProject/image/superset.png)
   
-
-
+Now, feel free to unleash your creativity in analyzing and exploring the data. Dive deep into the insights, create compelling visualizations, and generate comprehensive reports. With Superset connected to Hive, you have a powerful tool at your disposal to drive your business forward.
+Following Demo [here](https://www.youtube.com/watch?v=_f-eyajCySY&list=PLId1IInL1turLaBYUjjWeEM1z3ZCTMY7d).
 ## ⚙️🔧Configure Environment Variables
 
 The configuration parameters can be specified in the hadoop.env file or as environmental variables for specific services (e.g. namenode, datanode etc.):
