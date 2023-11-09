@@ -21,11 +21,11 @@ This project demonstrates the design and implementation of a  data pipeline and 
 * 📧[Contact](#contact) 
 
 
-## Architecture diagram
+## 🏛️Architecture diagram
 
 ![](./dataForProject/image/projectBigdata.jpg)
 
-## Overview
+## 📖Overview
   ### Database Schema
   ![](./dataForProject/image/dvdrental-schema.png)
   ### Dimensional Modeling with Sales
@@ -33,7 +33,7 @@ This project demonstrates the design and implementation of a  data pipeline and 
   ### Building report
   ![](./dataForProject/image/reportDVD.png) 
 
-## How it works
+## ⚙️How it works
 * Data Sources:
 
     OLTP PostgreSQL Database: The primary source of transactional data.
@@ -62,7 +62,7 @@ This project demonstrates the design and implementation of a  data pipeline and 
     Containerizes and isolates components for easy deployment and scalability.
 
 
-## Prerequisites
+## 🛠️Prerequisites
 What you need to run the project:
 - [Docker](https://www.docker.com/) - I suggest using Docker 4.22.x or above.
 - [Apache Component](https://www.apache.org/) - This project is kind of based on Apache component like HDFS, Hive, Spark,... so I would highly recommend you to take a look each component's docs.
@@ -70,7 +70,7 @@ What you need to run the project:
 - [PgAdmin4](https://www.pgadmin.org/download/) - This is the most popular and feature rich Open Source administration and development platform for PostgreSQL, we use that to create our OLTP database for ease of using.
 - [Airflow Orchestration](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) - I haven't done with Airflow services yet, because my laptop can't handle that much containers, but don't worry I will update ASAP.
 
-## Quick Start
+## 🚀Quick Start
 
 use git clone to clone this projetct:
 '''
@@ -102,9 +102,9 @@ The stack includes the following components and technologies:
 * Airflow Webserver: http://<dockerhadoop_IP_address>:8082
 * Superset: http://<dockerhadoop_IP_address>:8088
 * Postgres (also metastore for Airflow): http://<dockerhadoop_IP_address>:5435
-  
-## Quick Start 
-  ### PgAdmin4: Inital Database
+
+
+  ### 🐘PgAdmin4: Inital Database
   Install and ensure that Postgres container also running, then you can connect to that Postgres using PgAdmin4 interface.
 
 ![](./dataForProject/image/postgreConf.png)
@@ -116,7 +116,7 @@ The stack includes the following components and technologies:
   So, in the Postgres database, you can create the script and run that one I already give you in this path "./dataForProject/script-init/createDW-when-db-have-init.sql"
 
 
-  ### HDFS: Initialize our Datalake folder in HDFS
+  ### 📁HDFS: Initialize our Datalake folder in HDFS
   Go to the bash shell on the namenode with that same Container ID of the namenode.
   ```
     docker exec -it namenode bash
@@ -129,7 +129,7 @@ The stack includes the following components and technologies:
     hdfs dfs -mkdir -p /data/staging
   ```
 
-  ### Spark: ETL data from DBMS to Datalake (HDFS)
+  ### ✨Spark: ETL data from DBMS to Datalake (HDFS)
 
   Move on, go to your CMD and make sure your Spark cluster have the Postgres JDBC pre-installed and compatible with each other, I have researched and use it smoothly, all you need to do is copy the postgresql-42.6.0.jar to each Spark workers and Spark master. (TBH, you can run my script i give you in the text file and run it in your host CMD)
 
@@ -143,7 +143,7 @@ The stack includes the following components and technologies:
   ```
   run the code I provide you in this directory "./dataForProject/script-init/read-postgres-to-hdfs.txt", copy and past to the terminal
   
-  ### Hive: Initialize our Data Warehouse
+  ### 🐝Hive: Initialize our Data Warehouse
 
   Go to the command line of the Hive server and start hiveserver2
 
@@ -192,14 +192,14 @@ Let's change that.
 And let's create a table.
 
 Now the last thing, run the script "./dataForProject/script-init/hive-dw-init.txt", to create DW in Hive, ATTETION!: In Hive, primary keys and foreign keys are not natively supported, as it prioritizes large-scale data processing and querying over enforcing traditional relational constraints. Hive tables do not enforce primary key uniqueness or foreign key relationships. Data quality and consistency checks are typically handled upstream before data is loaded into Hive.
-  ### Superset: Visualize our DW to take insight
+  ### 📊Superset: Visualize our DW to take insight
   Last thing, we want to visualize the report for Business Insight or make report on top of our Data warehouse (Hive), so connect to hive at Superset: http://<dockerhadoop_IP_address>:8088.
   
   First thing, you want to connect to Hive:
   
 
 
-## Configure Environment Variables
+## ⚙️🔧Configure Environment Variables
 
 The configuration parameters can be specified in the hadoop.env file or as environmental variables for specific services (e.g. namenode, datanode etc.):
 ```
@@ -225,7 +225,7 @@ The available configurations are:
 
 If you need to extend some other configuration file, refer to base/entrypoint.sh bash script.
 
-## References
+## 📚References
 Inspired by following codes, articles and videos:
 
 * [Docker's document](https://www.linkedin.com/pulse/dockerizing-hadoop-hive-spark-sqoop-job-thomas/)
@@ -233,6 +233,6 @@ Inspired by following codes, articles and videos:
 * [Furthermore of docker](https://docs.docker.com/desktop/networking/)
 
 
-## Contact
+## 📧Contact
 Please feel free to contact me if you have any questions.
 <a href="https://ducanh0285@gmail.com" target="blank"><img align="center" src="https://img.icons8.com/color/48/000000/gmail--v2.png" alt="ducanh0285@gmail.com" height="30" width="40" /></a><a href="https://www.facebook.com/ducanh.pp" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="1" height="30" width="40" /></a><a href="https://twitter.com/Ducann02Nguyen" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="1" height="30" width="40" /></a><a href="https://www.linkedin.com/in/ducanhnt/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="1" height="30" width="40" /></a>
