@@ -6,19 +6,20 @@ This project demonstrates the design and implementation of a  data pipeline and 
 
 ### Table of contents
 
-* [Architecture diagram](#architecture-diagram)
-* [Overview](#overview)
-* [How it works](#how-it-works)
-* [Prerequisites](#prerequisites)
-* [Quick Start](#quick-start)
-    * [PgAdmin4](#pgadmin4)
-    * [HDFS](#hdfs)
-    * [Spark](#spark)
-    * [Hive](#hive)
-    * [Superset](#superset)
-* [Configure Environment Variables](#configure-environment-variables)
-* [References](#references)
-* [Contact](#contact)
+* [Architecture diagram](#architecture-diagram) 🏛️
+* [Overview](#overview) 📖
+* [How it works](#how-it-works) ⚙️
+* [Prerequisites](#prerequisites) 🛠️
+* [Quick Start](#quick-start) 🚀
+    * [PgAdmin4](#pgadmin4) 🐘
+    * [HDFS](#hdfs) 📁
+    * [Spark](#spark) ✨
+    * [Hive](#hive) 🐝
+    * [Superset](#superset) 📊
+* [Configure Environment Variables](#configure-environment-variables) ⚙️🔧
+* [References](#references) 📚
+* [Contact](#contact) 📧
+
 
 ## Architecture diagram
 
