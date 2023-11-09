@@ -70,10 +70,10 @@ What you need to run the project:
 
 ## 🚀Quick Start
 
-use git clone to clone this projetct:
-'''
+Use git clone to clone this projetct:
+```
   git clone https://github.com/DucAnhNTT/bigdata-ETL-pipeline.git
-'''
+```
 
 
 To deploy an the cluster, run:
@@ -148,10 +148,12 @@ Following Demo [here](https://www.youtube.com/watch?v=_f-eyajCySY&list=PLId1IInL
   ```
   run the code I provide you in this directory "./dataForProject/script-init/read-postgres-to-hdfs.txt", copy and past to the terminal. REMEMBER TO RESTART CONTAINERS AFTER YOU COPY THE FILE!
   
-  '''
+```
 docker cp postgresql-42.6.0.jar spark-master:spark/jars    
 docker cp postgresql-42.6.0.jar spark-worker-1:spark/jars
-  '''
+```
+
+
 Following Demo [here](https://www.youtube.com/watch?v=_f-eyajCySY&list=PLId1IInL1turLaBYUjjWeEM1z3ZCTMY7d).
   ### 🐝Hive: Initialize our Data Warehouse
 
