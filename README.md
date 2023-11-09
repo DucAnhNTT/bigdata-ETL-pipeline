@@ -71,6 +71,12 @@ What you need to run the project:
 
 ## Quick Start
 
+use git clone to clone this projetct:
+'''
+  git clone https://github.com/DucAnhNTT/bigdata-ETL-pipeline.git
+'''
+
+
 To deploy an the cluster, run:
 ```
   docker-compose up
@@ -97,7 +103,7 @@ The stack includes the following components and technologies:
 * Postgres (also metastore for Airflow): http://<dockerhadoop_IP_address>:5435
   
 ## Quick Start 
-  ### PgAdmin4: 
+  ### PgAdmin4: Inital Database
   Install and ensure that Postgres container also running, then you can connect to that Postgres using PgAdmin4 interface.
 
 ![](./dataForProject/image/postgreConf.png)
@@ -109,7 +115,7 @@ The stack includes the following components and technologies:
   So, in the Postgres database, you can create the script and run that one I already give you in this path "./dataForProject/script-init/createDW-when-db-have-init.sql"
 
 
-  ### HDFS
+  ### HDFS: Initialize our Datalake folder in HDFS
   Go to the bash shell on the namenode with that same Container ID of the namenode.
   ```
     docker exec -it namenode bash
@@ -122,7 +128,7 @@ The stack includes the following components and technologies:
     hdfs dfs -mkdir -p /data/staging
   ```
 
-  ### Spark
+  ### Spark: ETL data from DBMS to Datalake (HDFS)
 
   Move on, go to your CMD and make sure your Spark cluster have the Postgres JDBC pre-installed and compatible with each other, I have researched and use it smoothly, all you need to do is copy the postgresql-42.6.0.jar to each Spark workers and Spark master. (TBH, you can run my script i give you in the text file and run it in your host CMD)
 
@@ -136,7 +142,7 @@ The stack includes the following components and technologies:
   ```
   run the code I provide you in this directory "./dataForProject/script-init/read-postgres-to-hdfs.txt", copy and past to the terminal
   
-  ### Hive
+  ### Hive: Initialize our Data Warehouse
 
   Go to the command line of the Hive server and start hiveserver2
 
@@ -185,11 +191,11 @@ Let's change that.
 And let's create a table.
 
 Now the last thing, run the script "./dataForProject/script-init/hive-dw-init.txt", to create DW in Hive, ATTETION!: In Hive, primary keys and foreign keys are not natively supported, as it prioritizes large-scale data processing and querying over enforcing traditional relational constraints. Hive tables do not enforce primary key uniqueness or foreign key relationships. Data quality and consistency checks are typically handled upstream before data is loaded into Hive.
-  ### Superset
+  ### Superset: Visualize our DW to take insight
   Last thing, we want to visualize the report for Business Insight or make report on top of our Data warehouse (Hive), so connect to hive at Superset: http://<dockerhadoop_IP_address>:8088.
   
   First thing, you want to connect to Hive:
-    
+  
 
 
 ## Configure Environment Variables
