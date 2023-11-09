@@ -61,7 +61,13 @@ This project demonstrates the design and implementation of a  data pipeline and 
     Containerizes and isolates components for easy deployment and scalability.
 
 
-
+## Prerequisites
+What you need to run the project:
+- [Docker](https://www.docker.com/) - I suggest using Docker 4.22.x or above.
+- [Apache Component](https://www.apache.org/) - This project is kind of based on Apache component like HDFS, Hive, Spark,... so I would highly recommend you to take a look each component's docs.
+- [OLAP Dimemsional Modeling](https://www.youtube.com/watch?v=lWPiSZf7-uQ) - In this project I try to understand a completely data pipeline from source to visualize, and Modeling DataWwarehouse too, and there a video that cover a lot of things about DW and you can try [it](https://www.youtube.com/watch?v=lWPiSZf7-uQ).
+- [PgAdmin4](https://www.pgadmin.org/download/) - This is the most popular and feature rich Open Source administration and development platform for PostgreSQL, we use that to create our OLTP database for ease of using.
+- [Airflow Orchestration](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) - I haven't done with Airflow services yet, because my laptop can't handle that much containers, but don't worry I will update ASAP.
 
 ## Quick Start
 
@@ -90,13 +96,6 @@ The stack includes the following components and technologies:
 * Superset: http://<dockerhadoop_IP_address>:8088
 * Postgres (also metastore for Airflow): http://<dockerhadoop_IP_address>:5435
   
-## Prerequisites
-What you need to run the project:
-- [Docker](https://www.docker.com/) - I suggest using Docker 4.22.x or above.
-- [Apache Component](https://www.apache.org/) - This project is kind of based on Apache component like HDFS, Hive, Spark,... so I would highly recommend you to take a look each component's docs.
-- [OLAP Dimemsional Modeling](https://www.youtube.com/watch?v=lWPiSZf7-uQ) - In this project I try to understand a completely data pipeline from source to visualize, and Modeling DataWwarehouse too, and there a video that cover a lot of things about DW and you can try [it](https://www.youtube.com/watch?v=lWPiSZf7-uQ).
-- [PgAdmin4](https://www.pgadmin.org/download/) - This is the most popular and feature rich Open Source administration and development platform for PostgreSQL, we use that to create our OLTP database for ease of using.
-- [Airflow Orchestration](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) - I haven't done with Airflow services yet, because my laptop can't handle that much containers, but don't worry I will update ASAP.
 ## Quick Start 
   ### PgAdmin4: 
   Install and ensure that Postgres container also running, then you can connect to that Postgres using PgAdmin4 interface.
