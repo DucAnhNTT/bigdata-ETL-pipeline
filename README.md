@@ -1,4 +1,4 @@
-# DvDRental Pipeline and Analytics Stack with Docker multi-container environment
+# DvD Rental Pipeline and Analytics Stack with Docker multi-container environment
 
 This project demonstrates the design and implementation of a  data pipeline and analytics stack for processing, storing, and visualizing data. And hands-on Big Data solution with batch processing.
 
